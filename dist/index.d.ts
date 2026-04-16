@@ -29,20 +29,10 @@ interface PaystackPopGeneralOptions {
   connect_account?: string;
 }
 interface PaystackPopCallbacks {
-  onError?: (error: {
-    message: string;
-  }) => void;
+  onError?: (error: { message: string }) => void;
   onCancel?: () => void;
-  onLoad?: (response: {
-    id: number;
-    customer: unknown;
-    accessCode: string;
-  }) => void;
-  onSuccess?: (response: {
-    id: number;
-    reference: string;
-    message: string;
-  }) => void;
+  onLoad?: (response: { id: number; customer: unknown; accessCode: string }) => void;
+  onSuccess?: (response: { id: number; reference: string; message: string }) => void;
   onClose?: () => void;
   callback?: (response: unknown) => void;
   onBankTransferConfirmationPending?: () => void;
@@ -70,7 +60,12 @@ interface PaystackPopSubscriptionOptions {
   start_date?: string;
   subscription?: string | number;
 }
-interface PaystackPopNewTransactionOptions extends PaystackPopGeneralOptions, PaystackPopCallbacks, PaystackPopSplitOptions, PaystackPopSubscriptionOptions {}
+interface PaystackPopNewTransactionOptions
+  extends
+    PaystackPopGeneralOptions,
+    PaystackPopCallbacks,
+    PaystackPopSplitOptions,
+    PaystackPopSubscriptionOptions {}
 interface PaystackPopCheckoutOptions extends PaystackPopNewTransactionOptions {}
 interface PaystackPopPaymentRequestOptions extends PaystackPopNewTransactionOptions {
   container: string;
@@ -123,4 +118,16 @@ declare global {
  */
 declare function loadPaystack(): Promise<NonNullable<Window["PaystackPop"]>>;
 //#endregion
-export { PaystackPopCallbacks, PaystackPopCheckoutOptions, PaystackPopGeneralOptions, PaystackPopInstance, PaystackPopNewTransactionOptions, PaystackPopPaymentRequestOptions, PaystackPopSplitOptions, PaystackPopSubscriptionOptions, PopupTransaction, PopupTransactionStatus, loadPaystack };
+export {
+  PaystackPopCallbacks,
+  PaystackPopCheckoutOptions,
+  PaystackPopGeneralOptions,
+  PaystackPopInstance,
+  PaystackPopNewTransactionOptions,
+  PaystackPopPaymentRequestOptions,
+  PaystackPopSplitOptions,
+  PaystackPopSubscriptionOptions,
+  PopupTransaction,
+  PopupTransactionStatus,
+  loadPaystack,
+};
