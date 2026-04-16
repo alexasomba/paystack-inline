@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    tags:
+      - "v*"
 
 permissions:
   contents: write
@@ -22,33 +21,30 @@ jobs:
         with:
           release-type: node
 
-      # Only run if a release was created (PR merged)
-      - uses: actions/checkout@v6
+      # Handle automated release from Release Please
+      - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
 
       - uses: pnpm/action-setup@v4
         if: ${{ steps.release.outputs.release_created }}
-        with:
-          version: 10
 
-      - uses: actions/setup-node@v6
+      - name: Publish to NPM (Automated)
         if: ${{ steps.release.outputs.release_created }}
-        with:
-          node-version: "24"
-          registry-url: "https://registry.npmjs.org"
-          scope: "@alexasomba"
-          cache: "pnpm"
+        run: pnpm publish --no-git-checks --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: pnpm install --no-frozen-lockfile
-        if: ${{ steps.release.outputs.release_created }}
+      # Handle manual tagging (for forced version alignment)
+      - name: Checkout for tag publish
+        uses: actions/checkout@v4
+        if: ${{ startsWith(github.ref, 'refs/tags/v') && !steps.release.outputs.release_created }}
 
-      - run: pnpm run build --if-present
-        if: ${{ steps.release.outputs.release_created }}
+      - name: Setup pnpm for tag publish
+        uses: pnpm/action-setup@v4
+        if: ${{ startsWith(github.ref, 'refs/tags/v') && !steps.release.outputs.release_created }}
 
-      - run: pnpm test
-        if: ${{ steps.release.outputs.release_created }}
-
-      - run: pnpm publish --no-git-checks --access public
-        if: ${{ steps.release.outputs.release_created }}
+      - name: Publish to NPM (Manual Tag)
+        if: ${{ startsWith(github.ref, 'refs/tags/v') && !steps.release.outputs.release_created }}
+        run: pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
