@@ -16,35 +16,20 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
       - uses: googleapis/release-please-action@v4
         id: release
         with:
           release-type: node
 
-      # Handle automated release from Release Please
-      - uses: actions/checkout@v4
-        if: ${{ steps.release.outputs.release_created }}
-
-      - uses: pnpm/action-setup@v4
-        if: ${{ steps.release.outputs.release_created }}
-
-      - name: Publish to NPM (Automated)
-        if: ${{ steps.release.outputs.release_created }}
-        run: pnpm publish --no-git-checks --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      # Handle manual tagging (for forced version alignment)
-      - name: Checkout for tag publish
-        uses: actions/checkout@v4
-        if: ${{ startsWith(github.ref, 'refs/tags/v') && !steps.release.outputs.release_created }}
-
-      - name: Setup pnpm for tag publish
-        uses: pnpm/action-setup@v4
-        if: ${{ startsWith(github.ref, 'refs/tags/v') && !steps.release.outputs.release_created }}
-
-      - name: Publish to NPM (Manual Tag)
-        if: ${{ startsWith(github.ref, 'refs/tags/v') && !steps.release.outputs.release_created }}
+      - name: Publish to NPM
+        if: ${{ steps.release.outputs.release_created || startsWith(github.ref, 'refs/tags/v') }}
         run: pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
