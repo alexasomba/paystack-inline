@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
-          cache: 'pnpm'
+          cache: "pnpm"
 
       - run: pnpm install --no-frozen-lockfile
         if: ${{ steps.release.outputs.release_created }}
