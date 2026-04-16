@@ -37,6 +37,7 @@ jobs:
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
+          scope: "@alexasomba"
           cache: "pnpm"
 
       - run: pnpm install --no-frozen-lockfile
@@ -48,7 +49,7 @@ jobs:
       - run: pnpm test
         if: ${{ steps.release.outputs.release_created }}
 
-      - run: pnpm publish --no-git-checks --access public
+      - run: npm publish --access public
         if: ${{ steps.release.outputs.release_created }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
