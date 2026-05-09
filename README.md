@@ -28,6 +28,18 @@ pnpm add @alexasomba/paystack-inline
 yarn add @alexasomba/paystack-inline
 ```
 
+## Agent Skills
+
+This package ships TanStack Intent skills for agent-assisted Paystack Inline integration:
+
+```bash
+npx @tanstack/intent@latest list
+npx @tanstack/intent@latest install --map
+npx @tanstack/intent@latest load @alexasomba/paystack-inline#inline-checkout
+```
+
+Useful skills include `inline-checkout`, `server-initialize-verify`, and `popup-options`.
+
 ---
 
 ## Quick Start

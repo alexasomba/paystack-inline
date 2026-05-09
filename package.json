@@ -1,6 +1,6 @@
 {
   "name": "@alexasomba/paystack-inline",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "A strongly-typed, Promise-based TypeScript wrapper for Paystack Popup (inline.js).",
   "keywords": [
     "africa",
@@ -12,6 +12,7 @@
     "payments",
     "paystack",
     "popup",
+    "tanstack-intent",
     "typescript"
   ],
   "homepage": "https://github.com/alexasomba/paystack-inline#readme",
@@ -25,7 +26,9 @@
     "url": "https://github.com/alexasomba/paystack-inline.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "skills",
+    "!skills/_artifacts"
   ],
   "type": "module",
   "sideEffects": false,
@@ -48,6 +51,7 @@
     "coverage": "vp test run --coverage",
     "lint": "vp lint . --fix",
     "lint:package": "publint run --strict",
+    "lint:skills": "intent validate",
     "lint:types": "attw --profile esm-only --pack .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rm -rf dist",
@@ -56,6 +60,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
+    "@tanstack/intent": "^0.0.41",
     "jsdom": "^29.1.1",
     "publint": "^0.3.20",
     "typescript": "^5.9.3",
