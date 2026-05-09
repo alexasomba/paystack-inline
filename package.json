@@ -14,15 +14,15 @@
     "popup",
     "typescript"
   ],
-  "homepage": "https://github.com/alexasomba/paystack-openapi#readme",
+  "homepage": "https://github.com/alexasomba/paystack-inline#readme",
   "bugs": {
-    "url": "https://github.com/alexasomba/paystack-openapi/issues"
+    "url": "https://github.com/alexasomba/paystack-inline/issues"
   },
   "license": "MIT",
   "author": "alexasomba",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alexasomba/paystack-openapi.git"
+    "url": "https://github.com/alexasomba/paystack-inline.git"
   },
   "files": [
     "dist"
