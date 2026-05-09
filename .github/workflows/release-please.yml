@@ -5,6 +5,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish the current package version to npm"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -31,7 +37,7 @@ jobs:
 
   publish:
     needs: release-please
-    if: needs.release-please.outputs.release_created == 'true'
+    if: needs.release-please.outputs.release_created == 'true' || inputs.publish == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
