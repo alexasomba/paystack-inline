@@ -7,13 +7,6 @@ compatibility: "Modern browsers with Paystack Popup; package tooling/SSR builds 
 
 # Paystack Inline Popup Options
 
-## License and compatibility
-
-- License: MIT, same as `@alexasomba/paystack-inline`.
-- Runtime compatibility: modern browsers that can load Paystack Popup; package tooling and SSR builds require Node.js >=22.0.0.
-- Supported import path: `@alexasomba/paystack-inline`; the package is ESM with `type: "module"`.
-- Intended environment: client-side checkout only. Guard SSR paths and verify transactions on a backend before fulfillment.
-
 The Inline SDK exports TypeScript interfaces for Paystack Popup options and callback responses.
 
 ## Core options
