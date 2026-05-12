@@ -5,6 +5,13 @@ description: Use when pairing @alexasomba/paystack-inline with backend transacti
 
 # Paystack Inline Server Initialize and Verify
 
+## License and compatibility
+
+- License: MIT, same as `@alexasomba/paystack-inline`.
+- Runtime compatibility: modern browsers that can load Paystack Popup; package tooling and SSR builds require Node.js >=22.0.0.
+- Supported import path: `@alexasomba/paystack-inline`; the package is ESM with `type: "module"`.
+- Intended environment: client-side checkout only. Guard SSR paths and verify transactions on a backend before fulfillment.
+
 The safest Inline flow initializes the transaction on your backend, sends `access_code` to the browser, and verifies the transaction on the backend after checkout succeeds.
 
 ## Backend initialization

@@ -5,6 +5,13 @@ description: Use when integrating @alexasomba/paystack-inline checkout, loadPays
 
 # Paystack Inline Checkout
 
+## License and compatibility
+
+- License: MIT, same as `@alexasomba/paystack-inline`.
+- Runtime compatibility: modern browsers that can load Paystack Popup; package tooling and SSR builds require Node.js >=22.0.0.
+- Supported import path: `@alexasomba/paystack-inline`; the package is ESM with `type: "module"`.
+- Intended environment: client-side checkout only. Guard SSR paths and verify transactions on a backend before fulfillment.
+
 Use `@alexasomba/paystack-inline` to load Paystack Popup from `https://js.paystack.co/v2/inline.js` and interact with it through typed helpers.
 
 ## Load the popup script
