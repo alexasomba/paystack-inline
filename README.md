@@ -38,7 +38,7 @@ npx @tanstack/intent@latest install --map
 npx @tanstack/intent@latest load @alexasomba/paystack-inline#inline-checkout
 ```
 
-Useful skills include `inline-checkout`, `server-initialize-verify`, and `popup-options`.
+Useful skills include `inline-checkout`, `server-initialize-verify`, `popup-options`, and `popup-lifecycle`.
 
 ---
 

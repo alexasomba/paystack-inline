@@ -48,6 +48,36 @@ button.addEventListener("click", open);
 
 Use the exported option types when configuring split, subaccount, or subscription fields. Keep privileged split and plan setup on the backend; only pass frontend-safe identifiers into popup options.
 
+## Payment request options
+
+Use `PaystackPopPaymentRequestOptions` with `paymentRequest` when rendering wallet or payment request elements into a container.
+
+```ts
+await popup.paymentRequest({
+  key: "pk_test_...",
+  email: "customer@example.com",
+  amount: 500000,
+  container: "#paystack-payment-request",
+  styles: {
+    theme: "light",
+    applePay: {
+      type: "buy",
+      borderRadius: "6px",
+    },
+  },
+  onElementsMount: (elements) => {
+    console.log(elements);
+  },
+  onSuccess: ({ reference }) => verifyOnServer(reference),
+});
+```
+
+The container must exist in the browser DOM before calling `paymentRequest`.
+
+## Callback behavior
+
+Callbacks include `onLoad`, `onSuccess`, `onCancel`, `onClose`, `onError`, `callback`, `onBankTransferConfirmationPending`, and `onElementsMount` for payment request flows. Keep callbacks idempotent because users can close, retry, or trigger duplicate frontend events.
+
 ## Best practices
 
 - Always use a public key in popup options.

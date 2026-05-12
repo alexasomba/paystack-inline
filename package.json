@@ -1,6 +1,6 @@
 {
   "name": "@alexasomba/paystack-inline",
-  "version": "1.10.4",
+  "version": "1.10.5",
   "description": "A strongly-typed, Promise-based TypeScript wrapper for Paystack Popup (inline.js).",
   "keywords": [
     "africa",
