@@ -1,6 +1,8 @@
 ---
 name: server-initialize-verify
 description: Use when pairing @alexasomba/paystack-inline with backend transaction initialization and server-side verification.
+license: MIT
+compatibility: "Modern browsers with Paystack Popup; package tooling/SSR builds require Node.js >=22.0.0; ESM package; client-side checkout with server verification."
 ---
 
 # Paystack Inline Server Initialize and Verify

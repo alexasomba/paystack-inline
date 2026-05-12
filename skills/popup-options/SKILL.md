@@ -1,6 +1,8 @@
 ---
 name: popup-options
 description: Use when configuring @alexasomba/paystack-inline typed popup options, amount, currency, metadata, channels, splits, subscriptions, preloading, and callbacks.
+license: MIT
+compatibility: "Modern browsers with Paystack Popup; package tooling/SSR builds require Node.js >=22.0.0; ESM package; client-side checkout with server verification."
 ---
 
 # Paystack Inline Popup Options
