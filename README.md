@@ -35,10 +35,10 @@ This package ships TanStack Intent skills for agent-assisted Paystack Inline int
 ```bash
 npx @tanstack/intent@latest list
 npx @tanstack/intent@latest install --map
-npx @tanstack/intent@latest load @alexasomba/paystack-inline#inline-checkout
+npx @tanstack/intent@latest load @alexasomba/paystack-inline#paystack-inline-checkout
 ```
 
-Useful skills include `inline-checkout`, `server-initialize-verify`, and `popup-options`.
+Useful skills include `paystack-inline-checkout`, `paystack-inline-server-verify`, `paystack-inline-popup-options`, and `paystack-inline-popup-lifecycle`.
 
 ---
 

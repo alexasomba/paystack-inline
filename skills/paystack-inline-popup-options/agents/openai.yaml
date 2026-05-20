@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Inline Popup Options"
+  short_description: "Configure typed inline popup options"
+  default_prompt: "Use $paystack-inline-popup-options to configure typed Paystack Inline popup options."

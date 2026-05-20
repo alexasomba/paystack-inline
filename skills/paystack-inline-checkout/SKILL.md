@@ -1,6 +1,6 @@
 ---
-name: inline-checkout
-description: Use when integrating @alexasomba/paystack-inline checkout, loadPaystack, resumeTransaction, newTransaction, callbacks, and SSR guards.
+name: paystack-inline-checkout
+description: Use when integrating Paystack Inline checkout with @alexasomba/paystack-inline, including loadPaystack, resumeTransaction, newTransaction, callbacks, and SSR guards.
 license: MIT
 compatibility: "Modern browsers with Paystack Popup; package tooling/SSR builds require Node.js >=22.0.0; ESM package; client-side checkout with server verification."
 ---

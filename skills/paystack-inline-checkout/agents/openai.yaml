@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Inline Checkout"
+  short_description: "Integrate Paystack inline checkout"
+  default_prompt: "Use $paystack-inline-checkout to integrate Paystack inline checkout."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Inline Server Verify"
+  short_description: "Pair inline checkout with servers"
+  default_prompt: "Use $paystack-inline-server-verify to pair Paystack Inline checkout with server initialization and verification."

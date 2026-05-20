@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paystack Inline Popup Lifecycle"
+  short_description: "Manage Paystack popup lifecycle"
+  default_prompt: "Use $paystack-inline-popup-lifecycle to manage the Paystack Inline popup lifecycle."

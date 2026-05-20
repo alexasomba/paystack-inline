@@ -1,6 +1,6 @@
 {
   "name": "@alexasomba/paystack-inline",
-  "version": "1.10.4",
+  "version": "1.10.6",
   "description": "A strongly-typed, Promise-based TypeScript wrapper for Paystack Popup (inline.js).",
   "keywords": [
     "africa",
@@ -52,7 +52,7 @@
     "lint": "vp lint . --fix",
     "lint:package": "publint run --strict",
     "lint:skills": "intent validate",
-    "lint:types": "attw --profile esm-only --pack .",
+    "lint:types": "npm_config_cache=/private/tmp/paystack-openapi-npm-cache attw --profile esm-only --pack .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rm -rf dist",
     "prepack": "pnpm build",
