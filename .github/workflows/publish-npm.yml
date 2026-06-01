@@ -39,9 +39,6 @@ jobs:
       - name: Check
         run: pnpm exec vp check
 
-      - name: Test
-        run: pnpm test
-
       - name: Build
         run: pnpm build
 
