@@ -499,6 +499,13 @@ interface PopupTransactionStatus {
 
 ---
 
+## Source
+
+- Monorepo source: [alexasomba/paystack-openapi](https://github.com/alexasomba/paystack-openapi)
+- Standalone SDK repo: [https://github.com/alexasomba/paystack-inline](https://github.com/alexasomba/paystack-inline)
+
+---
+
 ## License
 
 MIT © [alexasomba](https://github.com/alexasomba)

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.6](https://github.com/alexasomba/paystack-inline/compare/v1.10.5...v1.10.6) (2026-06-01)
+
+### Documentation
+
+- document monorepo and standalone SDK source links
+- align generated SDK release-readiness metadata checks
+
 ## [1.4.0](https://github.com/alexasomba/paystack-inline/compare/v1.3.0...v1.4.0) (2026-04-16)
 
 ### Features
