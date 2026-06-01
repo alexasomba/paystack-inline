@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.10.7](https://github.com/alexasomba/paystack-inline/compare/v1.10.6...v1.10.7) (2026-06-01)
+
+### Bug Fixes
+
+- publish provenance-enabled npm release
+
 ## [1.10.6](https://github.com/alexasomba/paystack-inline/compare/v1.10.5...v1.10.6) (2026-06-01)
 
 ### Documentation
