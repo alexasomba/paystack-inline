@@ -24,7 +24,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
         with:
-          version: 10
+          version: 11.26.0
 
       - name: Setup Node
         uses: actions/setup-node@v6
@@ -41,6 +41,21 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Test
+        run: pnpm test
+
+      - name: Lint package metadata
+        run: pnpm run lint:package
+
+      - name: Install npm with trusted publishing support
+        run: npm install --global npm@11.18.0
+
+      - name: Verify release tag
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: node -e 'if (process.env.RELEASE_TAG !== `v${JSON.parse(require("node:fs").readFileSync("package.json", "utf8")).version}`) process.exit(1)'
 
       - name: Check published version
         id: published

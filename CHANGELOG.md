@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.10.9
+
+- Align standalone SDK installs with the source workspace catalog and patched dependencies.
+- Verify tests and package metadata before release.
+
 ## [1.10.7](https://github.com/alexasomba/paystack-inline/compare/v1.10.6...v1.10.7) (2026-06-01)
 
 ### Bug Fixes

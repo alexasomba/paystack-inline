@@ -1,6 +1,7 @@
 import { defineConfig } from "vite-plus";
 
 export default defineConfig({
+  fmt: { ignorePatterns: ["dist/**", "src/openapi-types.ts", "src/operations.ts"] },
   pack: {
     entry: ["./src/index.ts"],
     format: ["esm"],
