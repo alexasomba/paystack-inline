@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.11.0](https://github.com/alexasomba/paystack-inline/compare/v1.10.9...v1.11.0) (2026-10-09)
+
+### Features
+
+- Regenerate SDK types and operations from the current Paystack OpenAPI source.
+
+### Miscellaneous Chores
+
+- Require Node.js 22 or later and update the supported pnpm and Vite+ toolchain.
+
 ## 1.10.9
 
 - Align standalone SDK installs with the source workspace catalog and patched dependencies.
