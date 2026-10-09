@@ -14,16 +14,18 @@ The safest Inline flow initializes the transaction on your backend, sends `acces
 Use a server SDK or direct Paystack API call with your secret key.
 
 ```ts
-const result = await paystack.transaction_initialize({
-  body: {
-    email: customer.email,
-    amount: 500000,
-    reference: payment.reference,
-  },
-});
+async function initializePayment() {
+  const result = await paystack.transaction_initialize({
+    body: {
+      email: customer.email,
+      amount: 500000,
+      reference: payment.reference,
+    },
+  });
 
-const initialized = result.unwrap();
-return { accessCode: initialized.access_code };
+  const initialized = result.unwrap();
+  return { accessCode: initialized.access_code };
+}
 ```
 
 ## Frontend resume
