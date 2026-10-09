@@ -1,6 +1,7 @@
 packages:
   - .
 allowBuilds:
+  "@scarf/scarf": false
   "@quobix/vacuum": true
   core-js: false
   esbuild: true
@@ -11,11 +12,12 @@ catalog:
   vite: npm:@voidzero-dev/vite-plus-core@1.1.0
   vite-plus: 1.1.0
   vitest: 5.0.3
+minimumReleaseAgeExclude:
+  - "@redocly/cli@2.62.1"
+  - express@5.3.0
 overrides:
   axios: ^1.20.0
   form-data: ^4.0.6
-  vite: "catalog:"
-  vitest: "catalog:"
   protobufjs: 7.6.5
   qs: 6.16.0
   brace-expansion@1: 1.1.21
@@ -39,6 +41,8 @@ overrides:
   source-map-js: 1.2.2
   proxy-addr: 2.0.8
   handlebars: 4.7.10
+  vite@*: "catalog:"
+  vitest@*: "catalog:"
 peerDependencyRules:
   allowAny:
     - vite
