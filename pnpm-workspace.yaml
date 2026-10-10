@@ -15,6 +15,21 @@ catalog:
 minimumReleaseAgeExclude:
   - "@redocly/cli@2.62.1"
   - express@5.3.0
+  - "@pnpm/exe.android-arm64@12.11.2"
+  - "@pnpm/exe.android-x64@12.11.2"
+  - "@pnpm/exe.darwin-arm64@12.11.2"
+  - "@pnpm/exe.darwin-x64@12.11.2"
+  - "@pnpm/exe.freebsd-x64@12.11.2"
+  - "@pnpm/exe.linux-arm64-musl@12.11.2"
+  - "@pnpm/exe.linux-arm64@12.11.2"
+  - "@pnpm/exe.linux-ppc64@12.11.2"
+  - "@pnpm/exe.linux-riscv64@12.11.2"
+  - "@pnpm/exe.linux-s390x@12.11.2"
+  - "@pnpm/exe.linux-x64-musl@12.11.2"
+  - "@pnpm/exe.linux-x64@12.11.2"
+  - "@pnpm/exe.win32-arm64@12.11.2"
+  - "@pnpm/exe.win32-x64@12.11.2"
+  - pnpm@12.11.2
 overrides:
   axios: ^1.20.0
   form-data: ^4.0.6
@@ -50,3 +65,4 @@ peerDependencyRules:
   allowedVersions:
     vite: "*"
     vitest: "*"
+    typescript: 6.x
