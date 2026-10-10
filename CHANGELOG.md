@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.12.0](https://github.com/alexasomba/paystack-inline/compare/v1.11.1...v1.12.0) (2026-10-10)
+
+### Miscellaneous Chores
+
+- Keep the inline SDK version aligned with the OpenAPI-backed TypeScript SDK releases.
+
 ## [1.11.1](https://github.com/alexasomba/paystack-inline/compare/v1.11.0...v1.11.1) (2026-10-10)
 
 ### Miscellaneous Chores
