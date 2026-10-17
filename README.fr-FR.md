@@ -7,8 +7,6 @@ Un ** wrapper TypeScript fortement typé, basé sur Promise ** pour le popup Pay
 > **Pourquoi ne pas regrouper directement inline.js ?**
 > Paystack expédie silencieusement les correctifs de sécurité et de détection de fraude via son CDN. En chargeant dynamiquement le script au moment de l'exécution, vos utilisateurs obtiennent toujours la version la plus récente et la plus sécurisée, sans que vous ayez à supprimer une nouvelle version.
 
-
-
 ## Fonctionnalités
 
 - ✅ **Zéro dépendance** — pas de ballonnement npm, 0,91 Ko gzippé
@@ -17,7 +15,6 @@ Un ** wrapper TypeScript fortement typé, basé sur Promise ** pour le popup Pay
 - ✅ La promesse `loadPaystack()` évite les conditions de course et le double chargement
 - ✅ Prise en charge : **Cartes, banque, USSD, Mobile Money, virement bancaire, QR, Apple Pay, abonnements, fractionnements**
 - ✅ Fonctionne avec **React, Vue, Svelte, Next.js, SvelteKit, HTML brut** — n'importe quelle interface
-
 
 ## Installation
 
@@ -28,7 +25,6 @@ pnpm add @alexasomba/paystack-inline
 # or
 yarn add @alexasomba/paystack-inline
 ```
-
 
 ## Compétences des agents
 
@@ -42,10 +38,7 @@ npx @tanstack/intent@latest load @alexasomba/paystack-inline#paystack-inline-che
 
 Les compétences utiles incluent `paystack-inline-checkout`, `paystack-inline-server-verify`, `paystack-inline-popup-options` et `paystack-inline-popup-lifecycle`.
 
-
-
 ## Démarrage rapide
-
 
 ### 1. Initialisez depuis votre serveur (obligatoire)
 
@@ -60,7 +53,6 @@ curl https://api.paystack.co/transaction/initialize \
 ```
 
 La réponse contient `data.access_code`. Envoyez ceci à votre frontend.
-
 
 ### 2. Reprendre la transaction dans le navigateur
 
@@ -83,10 +75,7 @@ popup.resumeTransaction(accessCode, {
 
 > **Toujours vérifier côté serveur** après `onSuccess`. Ne fournissez jamais de valeur basée uniquement sur un rappel client : confirmez avec le point de terminaison [Verify Transaction](https://paystack.com/docs/api/transaction/#verify).
 
-
-
 ## Référence API
-
 
 ### `loadPaystack()`
 
@@ -107,8 +96,6 @@ if (typeof window !== "undefined") {
 }
 ```
 
-
-
 ### `popup.resumeTransaction(accessCode, callbacks?)`
 
 Le flux de paiement **recommandé**. Initialisez sur votre serveur, puis reprenez sur le client.
@@ -120,8 +107,6 @@ popup.resumeTransaction("br6cgmvflhn3qtd", {
   onError: (err) => console.error(err.message),
 });
 ```
-
-
 
 ### `popup.newTransaction(options)`
 
@@ -146,32 +131,28 @@ const transaction = popup.newTransaction({
 });
 ```
 
-
 #### Options de base
 
-| Options | Tapez | Obligatoire | Descriptif |
-| ----------- | ---------- | -------- | --------------------------------------------------------------------------------------------- |
-| `key` | `string` | ✅ | Votre clé **publique** Paystack (`pk_...`) |
-| `email` | `string` | ✅ | Adresse e-mail du client |
-| `amount` | `number` | ✅ | Montant dans l'unité monétaire la plus basse (par exemple kobo) |
-| `currency` | `string` | — | Code devise : `NGN`, `GHS`, `ZAR`, `KES`, `USD` |
-| `reference` | `string` | — | Référence unique de la transaction. Généré automatiquement si non défini |
-| `label` | `string` | — | Nom du client affiché à la caisse |
-| `channels` | `string[]` | — | Canaux limites : `["card", "bank", "ussd", "mobile_money", "bank_transfer", "qr", "eft"]` |
-| `metadata` | `object` | — | Données clé-valeur arbitraires attachées à la transaction |
-| `language` | `string` | — | Langage de vérification forcée (`en`, `fr`, `pt`, etc.) |
-
+| Options     | Tapez      | Obligatoire | Descriptif                                                                                |
+| ----------- | ---------- | ----------- | ----------------------------------------------------------------------------------------- |
+| `key`       | `string`   | ✅          | Votre clé **publique** Paystack (`pk_...`)                                                |
+| `email`     | `string`   | ✅          | Adresse e-mail du client                                                                  |
+| `amount`    | `number`   | ✅          | Montant dans l'unité monétaire la plus basse (par exemple kobo)                           |
+| `currency`  | `string`   | —           | Code devise : `NGN`, `GHS`, `ZAR`, `KES`, `USD`                                           |
+| `reference` | `string`   | —           | Référence unique de la transaction. Généré automatiquement si non défini                  |
+| `label`     | `string`   | —           | Nom du client affiché à la caisse                                                         |
+| `channels`  | `string[]` | —           | Canaux limites : `["card", "bank", "ussd", "mobile_money", "bank_transfer", "qr", "eft"]` |
+| `metadata`  | `object`   | —           | Données clé-valeur arbitraires attachées à la transaction                                 |
+| `language`  | `string`   | —           | Langage de vérification forcée (`en`, `fr`, `pt`, etc.)                                   |
 
 #### Options client
 
-| Options | Tapez | Descriptif |
-| ---------- | -------- | ------------------------------- |
-| `firstName` | `string` | Pré-remplir le prénom du client |
-| `lastName` | `string` | Pré-remplir le nom de famille du client |
-| `phone` | `string` | Numéro de téléphone du client |
-| `customerCode` | `string` | Code client Paystack existant |
-
-
+| Options        | Tapez    | Descriptif                              |
+| -------------- | -------- | --------------------------------------- |
+| `firstName`    | `string` | Pré-remplir le prénom du client         |
+| `lastName`     | `string` | Pré-remplir le nom de famille du client |
+| `phone`        | `string` | Numéro de téléphone du client           |
+| `customerCode` | `string` | Code client Paystack existant           |
 
 ### `popup.preloadTransaction(options)` → `() => void`
 
@@ -189,8 +170,6 @@ const open = popup.preloadTransaction({
 document.getElementById("pay-btn").addEventListener("click", open);
 ```
 
-
-
 ### `popup.checkout(options)` → `Promise<PopupTransaction>`
 
 Paiement basé sur une promesse. Résout avec l'objet `PopupTransaction` lorsque la fenêtre contextuelle s'ouvre.
@@ -207,8 +186,6 @@ const transaction = await popup.checkout({
 console.log(transaction.getStatus());
 ```
 
-
-
 ### `popup.cancelTransaction(idOrTransaction)`
 
 Fermez par programmation une transaction ouverte.
@@ -218,8 +195,6 @@ const tx = popup.newTransaction({ ... });
 // ... later
 popup.cancelTransaction(tx); // or popup.cancelTransaction(tx.id)
 ```
-
-
 
 ### `popup.paymentRequest(options)` → `Promise<PopupTransaction>`
 
@@ -248,35 +223,30 @@ const payment = await popup.paymentRequest({
 });
 ```
 
-
 #### Options `paymentRequest`
 
-| Options | Tapez | Descriptif |
-| ---------------------------- | ------------------- | ------------------------------------------------------ |
-| `container` | `string` | ✅ Sélecteur CSS ou ID d'élément de la cible de montage |
-| `loadPaystackCheckoutButton` | `string` | Sélecteur pour un bouton personnalisé qui ouvre la fenêtre contextuelle complète |
-| `styles.theme` | `"dark" \| "light"` | Thème du bouton Apple Pay |
-| `styles.applePay.type` | `string` | Étiquette du bouton Apple Pay : `"plain"`, `"buy"`, `"donate"` |
-| `styles.applePay.locale` | `string` | Paramètres régionaux du bouton Apple Pay |
-| `onElementsMount` | `function` | Se déclenche lorsque les éléments incorporés apparaissent dans le DOM |
-
-
+| Options                      | Tapez               | Descriptif                                                                       |
+| ---------------------------- | ------------------- | -------------------------------------------------------------------------------- |
+| `container`                  | `string`            | ✅ Sélecteur CSS ou ID d'élément de la cible de montage                          |
+| `loadPaystackCheckoutButton` | `string`            | Sélecteur pour un bouton personnalisé qui ouvre la fenêtre contextuelle complète |
+| `styles.theme`               | `"dark" \| "light"` | Thème du bouton Apple Pay                                                        |
+| `styles.applePay.type`       | `string`            | Étiquette du bouton Apple Pay : `"plain"`, `"buy"`, `"donate"`                   |
+| `styles.applePay.locale`     | `string`            | Paramètres régionaux du bouton Apple Pay                                         |
+| `onElementsMount`            | `function`          | Se déclenche lorsque les éléments incorporés apparaissent dans le DOM            |
 
 ## Rappels
 
 Toutes les méthodes de transaction acceptent la même interface de rappel :
 
-| Rappel | Signature | Descriptif |
-| ----------------------------------- | --------------------------------------------- | --------------------------------------------------- |
-| `onSuccess` | `(res: { id, reference, message }) => void` | Paiement effectué avec succès |
-| `onError` | `(err: { message: string }) => void` | Le paiement a échoué avec une erreur |
-| `onCancel` | `() => void` | L'utilisateur a fermé la fenêtre contextuelle avant de terminer |
-| `onClose` | `() => void` | La fenêtre contextuelle a été fermée (inclut à la fois l'annulation et le succès) |
-| `onLoad` | `(res: { id, customer, accessCode }) => void` | Popup entièrement chargé et prêt |
-| `onBankTransferConfirmationPending` | `() => void` | Virement bancaire initié, en attente de confirmation |
-| `callback` | `(res: any) => void` | Rappel hérité v1 (utilisez plutôt `onSuccess`) |
-
-
+| Rappel                              | Signature                                     | Descriptif                                                                        |
+| ----------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------- |
+| `onSuccess`                         | `(res: { id, reference, message }) => void`   | Paiement effectué avec succès                                                     |
+| `onError`                           | `(err: { message: string }) => void`          | Le paiement a échoué avec une erreur                                              |
+| `onCancel`                          | `() => void`                                  | L'utilisateur a fermé la fenêtre contextuelle avant de terminer                   |
+| `onClose`                           | `() => void`                                  | La fenêtre contextuelle a été fermée (inclut à la fois l'annulation et le succès) |
+| `onLoad`                            | `(res: { id, customer, accessCode }) => void` | Popup entièrement chargé et prêt                                                  |
+| `onBankTransferConfirmationPending` | `() => void`                                  | Virement bancaire initié, en attente de confirmation                              |
+| `callback`                          | `(res: any) => void`                          | Rappel hérité v1 (utilisez plutôt `onSuccess`)                                    |
 
 ## Abonnements
 
@@ -296,18 +266,15 @@ popup.newTransaction({
 });
 ```
 
-
 #### Options d'abonnement
 
-| Options | Tapez | Alias ​​| Descriptif |
-| ----------------------- | -------- | --------------- | ----------------------------------------------------------------- |
-| `planCode` | `string` | `plan` | Code du plan de paie (`PLN_...`) |
-| `subscriptionCount` | `number` | `quantity` | Nombre d'abonnements / places |
-| `planInterval` | `string` | `interval` | `hourly`, `daily`, `weekly`, `monthly`, `annually` |
-| `subscriptionLimit` | `number` | `invoice_limit` | Nombre maximum de cycles de facturation avant l'arrêt |
-| `subscriptionStartDate` | `string` | `start_date` | Date ISO 8601 pour la première charge |
-
-
+| Options                 | Tapez    | Alias ​​          | Descriptif                                            |
+| ----------------------- | -------- | --------------- | ----------------------------------------------------- |
+| `planCode`              | `string` | `plan`          | Code du plan de paie (`PLN_...`)                      |
+| `subscriptionCount`     | `number` | `quantity`      | Nombre d'abonnements / places                         |
+| `planInterval`          | `string` | `interval`      | `hourly`, `daily`, `weekly`, `monthly`, `annually`    |
+| `subscriptionLimit`     | `number` | `invoice_limit` | Nombre maximum de cycles de facturation avant l'arrêt |
+| `subscriptionStartDate` | `string` | `start_date`    | Date ISO 8601 pour la première charge                 |
 
 ## Paiements fractionnés
 
@@ -325,22 +292,18 @@ popup.newTransaction({
 });
 ```
 
-
 #### Options de partage
 
-| Options | Tapez | Alias ​​| Descriptif |
-| ------------------- | -------------------------------- | -------------------- | ------------------------------------------------ |
-| `subaccountCode` | `string` | `subaccount` | Code de sous-compte avec lequel partager |
-| `split_code` | `string` | | Référencer un groupe fractionné préconfiguré |
-| `split` | `object` | | Objet de configuration fractionné en ligne |
-| `connect_split` | `string[]` | | Tableau de codes de compte connectés pour le multi-split |
-| `bearer` | `"account" \| "subaccount"` | | Qui absorbe les frais de transaction |
-| `transactionCharge` | `string \| number` | `transaction_charge` | Forfait (en kobo) retenu par le compte principal |
-
-
+| Options             | Tapez                       | Alias ​​               | Descriptif                                               |
+| ------------------- | --------------------------- | -------------------- | -------------------------------------------------------- |
+| `subaccountCode`    | `string`                    | `subaccount`         | Code de sous-compte avec lequel partager                 |
+| `split_code`        | `string`                    |                      | Référencer un groupe fractionné préconfiguré             |
+| `split`             | `object`                    |                      | Objet de configuration fractionné en ligne               |
+| `connect_split`     | `string[]`                  |                      | Tableau de codes de compte connectés pour le multi-split |
+| `bearer`            | `"account" \| "subaccount"` |                      | Qui absorbe les frais de transaction                     |
+| `transactionCharge` | `string \| number`          | `transaction_charge` | Forfait (en kobo) retenu par le compte principal         |
 
 ## Exemples de framework
-
 
 ### React
 
@@ -368,7 +331,6 @@ function CheckoutButton({ accessCode }: { accessCode: string }) {
 }
 ```
 
-
 ### Next.js (routeur d'application)
 
 ```typescript
@@ -388,7 +350,6 @@ export default function PayButton({ accessCode }: { accessCode: string }) {
   return <button onClick={handlePay}>Complete Payment</button>;
 }
 ```
-
 
 ### Vue 3
 
@@ -412,7 +373,6 @@ const handlePay = async () => {
 </template>
 ```
 
-
 ### Svelte / SvelteKit
 
 ```typescript
@@ -433,8 +393,6 @@ const handlePay = async () => {
 <button on:click={handlePay}>Pay Now</button>
 ```
 
-
-
 ## Référence TypeScript
 
 Tous les types exportés sont disponibles pour l'importation directe :
@@ -454,7 +412,6 @@ import type {
 } from "@alexasomba/paystack-inline";
 ```
 
-
 ### `PopupTransactionStatus`
 
 ```typescript
@@ -466,8 +423,6 @@ interface PopupTransactionStatus {
   checkoutUrl?: string;
 }
 ```
-
-
 
 ## Terminer le flux de paiement
 
@@ -494,15 +449,11 @@ interface PopupTransactionStatus {
          │  Deliver value to customer ✅
 ```
 
-
-
 ## Notes de sécurité
 
 - **N'utilisez jamais votre clé secrète sur le frontend.** Utilisez uniquement votre clé publique (`pk_...`).
 - **Toujours vérifier les transactions côté serveur** avant de fournir de la valeur : le rappel `onSuccess` peut être usurpé.
 - Le script sur `https://js.paystack.co/v2/inline.js` est chargé via HTTPS et servi avec des en-têtes sécurisés par l'intégrité par le CDN de Paystack.
-
-
 
 ## Ressources connexes
 
@@ -512,14 +463,10 @@ interface PopupTransactionStatus {
 - [Paystack Docs — Canaux de paiement](https://paystack.com/docs/payments/payment-channels/)
 - [Paystack Docs — Abonnements](https://paystack.com/docs/payments/subscriptions/)
 
-
-
 ## Source
 
 - Source Monorepo : [alexasomba/paystack-openapi](https://github.com/alexasomba/paystack-openapi)
 - Dépôt SDK autonome : [https://github.com/alexasomba/paystack-inline](https://github.com/alexasomba/paystack-inline)
-
-
 
 ## Licence
 
