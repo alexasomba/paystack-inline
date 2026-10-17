@@ -1,3 +1,5 @@
+[English](README.md) · [Español](README.es-ES.md) · [Français](README.fr-FR.md)
+
 # @alexasomba/paystack-inline
 
 A **strongly-typed, Promise-based TypeScript wrapper** for the Paystack Popup (`inline.js`). Gives you full IDE autocomplete and type safety, while securely deferring all the heavy lifting — iframe rendering, WebSockets, Apple Pay sessions, PCI compliance — to Paystack's official CDN.
